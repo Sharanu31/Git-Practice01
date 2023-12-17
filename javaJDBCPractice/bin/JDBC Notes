@@ -1,0 +1,10 @@
+JDBC steps
+
+1.import the package
+2. a.Load 
+   b.Register
+3.Establish the connection
+4.Create the statement
+5.Execute the querey
+6.Process result
+7.Close

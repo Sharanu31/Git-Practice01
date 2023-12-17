@@ -1,0 +1,955 @@
+Java Collections Framework :-
+
+*The Java collections framework provides a set of interfaces and classes to implement various data structures and algorithms.
+example:-the LinkedList class of the collections framework provides the implementation of the doubly-linked list data structure.
+
+Collections Framework
+1.Collection a.List
+	     b.Set
+	     c.Queue
+2.Map
+3.Iterator
+
+Java Collection Interface:-
+
+*The Collection interface is the root interface of the collections framework hierarchy.
+
+Java does not provide direct implementations of the Collection interface but provides implementations of its subinterfaces like List, Set, and Queue
+
+
+Collections Framework Vs. Collection Interface :-
+
+People often get confused between the collections framework and Collection Interface.
+
+The Collection interface is the root interface of the collections framework. The framework includes other interfaces as well: Map and Iterator. These interfaces
+may also have subinterfaces.
+
+Subinterfaces of the Collection Interface:-
+
+*As mentioned earlier, the Collection interface includes subinterfaces that are implemented by Java classes.
+*All the methods of the Collection interface are also present in its subinterfaces.
+*Here are the subinterfaces of the Collection Interface:
+
+A.List Interface:-
+*.The List interface is an ordered collection that allows us to add and remove elements like an array.
+*.In Java, the List interface is an ordered collection that allows us to store and access elements sequentially. It extends the Collection interface.
+Classes that Implement List:-
+Since List is an interface, we cannot create objects from it.
+
+In order to use functionalities of the List interface, we can use these classes:
+Below Classes implements the list interface.
+ArrayList
+LinkedList
+Vector
+Stack
+
+How to use List?
+
+In Java, we must import java.util.List package in order to use List.
+
+// ArrayList implementation of List
+List<String> list1 = new ArrayList<>();
+
+// LinkedList implementation of List
+List<String> list2 = new LinkedList<>();
+
+Methods of List:-
+1.The List interface includes all the methods of the Collection interface. Its because Collection is a super interface of List.
+2.Some of the commonly used methods of the Collection interface that's also available in the List interface are:
+
+add() 	    - 	adds an element to a list
+addAll()    - 	adds all elements of one list to another
+get()       - 	helps to randomly access elements from lists
+iterator()  - 	returns iterator object that can be used to sequentially access elements of lists
+set()       - 	changes elements of lists
+remove()    - 	removes an element from the list
+removeAll() - 	removes all the elements from the list
+clear()     - 	removes all the elements from the list (more efficient than removeAll())
+size()      - 	returns the length of lists
+toArray()   - 	converts a list into an array
+contains()  - 	returns true if a list contains specified element
+
+ArrayList :- 
+In Java, we use the ArrayList class to implement the functionality of resizable-arrays.
+
+It implements the List interface of the collections framework.
+
+Unlike arrays, arraylists can automatically adjust their capacity when we add or remove elements from them. Hence, arraylists are also known as dynamic arrays.
+
+ArrayList provides constant time for search operation, so it is better to use ArrayList
+
+Creating an ArrayList:-
+ArrayList<Type> arrayList= new ArrayList<>();
+
+Here, Type indicates the type of an arraylist. For example,
+
+// create Integer type arraylist
+ArrayList<Integer> arrayList = new ArrayList<>();
+
+// create String type arraylist
+ArrayList<String> arrayList = new ArrayList<>();
+
+In the above program, we have used Integer not int. It is because we cannot use primitive types while creating an arraylist. Instead, we have to use the corresponding wrapper classes.
+
+
+
+
+LinkedList :-
+
+The LinkedList class of the Java collections framework provides the functionality of the linked list data structure (doubly linkedlist).
+
+Each element in a linked list is known as a node. It consists of 3 fields:
+
+ storeformat-  |Prev|Data|Next|
+
+Prev - stores an address of the previous element in the list. It is null for the first element
+Next - stores an address of the next element in the list. It is null for the last element
+Data - stores the actual data
+
+LinkedList as Deque and Queue
+
+Since the LinkedList class also implements the Queue and the Deque interface, it can implement methods of these interfaces as 
+well. Here are some of the commonly used methods:
+
+Methods	          Descriptions
+addFirst()		adds the specified element at the beginning of the linked list
+addLast()		adds the specified element at the end of the linked list
+getFirst()		returns the first element
+getLast()		returns the last element
+removeFirst()	removes the first element
+removeLast()	removes the last element
+peek()			returns the first element (head) of the linked list
+poll()			returns and removes the first element from the linked list
+offer()			adds the specified element at the end of the linked list
+
+
+		LinkedList														ArrayList	                                    
+Implements List, Queue, and Deque interfaces.					Implements List interface.
+
+Stores 3 values (previous address, data, and next address)	    Stores a single value in a single position.
+in a single position.
+
+Provides the doubly-linked list implementation.					Provides a resizable array implementation.
+
+Whenever an element is added, prev and next address             Whenever an element is added, all elements after that position
+are changed.													are shifted.
+
+To access an element, we need to iterate from the               Can randomly access elements using indexes.
+beginning to the element.
+
+
+Vector :-
+The Vector class is an implementation of the List interface that allows us to create resizable-arrays similar to the
+ArrayList class.
+
+Java Vector vs. ArrayList:
+In Java, both ArrayList and Vector implements the List interface and provides the same functionalities. However,
+ there exist some differences between them.
+
+The Vector class synchronizes each individual operation. This means whenever we want to perform some operation on vectors, 
+the Vector class automatically applies a lock to that operation.
+
+It is because when one thread is accessing a vector, and at the same time another thread tries to access it, 
+an exception called ConcurrentModificationException is generated. Hence, this continuous use of lock for each 
+operation makes vectors less efficient.
+
+However, in array lists, methods are not synchronized. Instead, it uses the Collections.synchronizedList()
+method that synchronizes the list as a whole.
+
+Here is how we can create vectors in Java.
+
+Vector<Type> vector = new Vector<>();
+
+Here, Type indicates the type of a linked list. For example,
+
+// create Integer type linked list
+Vector<Integer> vector= new Vector<>();
+
+// create String type linked list
+Vector<String> vector= new Vector<>();
+
+
+Stack :-
+The Java collections framework has a class named Stack that provides the functionality of the stack data structure.
+
+The Stack class extends the Vector class.
+https://www.programiz.com/java-programming/stack
+
+Stack Implementation
+In stack, elements are stored and accessed in Last In First Out manner. That is, elements are added to the top of 
+the stack and removed from the top of the stack.
+
+Creating a Stack
+In order to create a stack, we must import the java.util.Stack package first. Once we import the package, here is how we can 
+create a stack in Java.
+
+Stack<Type> stacks = new Stack<>();
+Here, Type indicates the stack's type. For example,
+
+// Create Integer type stack
+Stack<Integer> stacks = new Stack<>();
+
+// Create String type stack
+Stack<String> stacks = new Stack<>();
+
+Stack Methods
+Since Stack extends the Vector class, it inherits all the methods Vector. To learn about different Vector methods, visit 
+Java Vector Class.
+
+Besides these methods, the Stack class includes 5 more methods that distinguish it from Vector.
+
+Use ArrayDeque Instead of Stack
+The Stack class provides the direct implementation of the stack data structure. However, 
+it is recommended not to use it. Instead, use the ArrayDeque class (implements the Deque interface) to implement the
+stack data structure in Java.
+
+To learn more, visit:
+
+Java ArrayDeque
+https://www.programiz.com/java-programming/arraydeque
+Why use Deque over Stack?
+https://stackoverflow.com/questions/12524826/why-should-i-use-deque-over-stack
+
+
+B.Set Interface:-
+The Set interface allows us to store elements in different sets similar to the set in mathematics. 
+It cannot have duplicate elements. 
+
+The Set interface of the Java Collections framework provides the features of the mathematical set in Java.
+It extends the Collection interface.
+
+Unlike the List interface, sets cannot contain duplicate elements.
+
+Classes that implement Set
+Since Set is an interface, we cannot create objects from it.
+
+In order to use functionalities of the Set interface, we can use these classes:
+
+HashSet
+LinkedHashSet
+EnumSet
+TreeSet
+
+Interfaces that extend Set
+The Set interface is also extended by these subinterfaces:
+
+SortedSet
+NavigableSet
+
+How to use Set?
+
+In Java, we must import java.util.Set package in order to use Set.
+
+// Set implementation using HashSet
+Set<String> animals = new HashSet<>();
+Here, we have created a Set called animals. We have used the HashSet class to implement the Set interface.
+
+
+Methods of Set
+The Set interface includes all the methods of the Collection interface. It's because Collection is a super interface of Set.
+
+Some of the commonly used methods of the Collection interface that's also available in the Set interface are:
+
+add()         - adds the specified element to the set
+addAll()      - adds all the elements of the specified collection to the set
+iterator()    - returns an iterator that can be used to access elements of the set sequentially
+remove()      - removes the specified element from the set
+removeAll()   - removes all the elements from the set that is present in another specified set
+retainAll()   - retains all the elements in the set that are also present in another specified set
+clear()       - removes all the elements from the set
+size()        - returns the length (number of elements) of the set
+toArray()     - returns an array containing all the elements of the set
+contains()    - returns true if the set contains the specified element
+containsAll() - returns true if the set contains all the elements of the specified collection
+hashCode()    - returns a hash code value (address of the element in the set)
+
+Set Operations
+The Java Set interface allows us to perform basic mathematical set operations like union, intersection, and subset.
+
+Union 			- to get the union of two sets x and y, we can use x.addAll(y)
+Intersection    - to get the intersection of two sets x and y, we can use x.retainAll(y)
+Subset 			- to check if x is a subset of y, we can use y.containsAll(x)
+
+
+HashSet:-
+
+The HashSet class of the Java Collections framework provides the functionalities of the hash table data structure.
+
+It implements the Set interface.
+
+Creating a HashSet
+In order to create a hash set, we must import the java.util.HashSet package first.
+
+Once we import the package, here is how we can create hash sets in Java.
+
+// HashSet with 8 capacity and 0.75 load factor
+HashSet<Integer> numbers = new HashSet<>(8, 0.75);
+Here, we have created a hash set named numbers.
+
+Notice, the part new HashSet<>(8, 0.75). Here, the first parameter is capacity, and the second parameter is loadFactor.
+
+capacity - The capacity of this hash set is 8. Meaning, it can store 8 elements.
+loadFactor - The load factor of this hash set is 0.6. This means, whenever our hash set is filled by 60%, the elements are moved to a new hash table of double the size of the original hash table.
+Default capacity and load factor
+
+It's possible to create a hash table without defining its capacity and load factor. For example,
+
+// HashSet with default capacity and load factor
+HashSet<Integer> numbers1 = new HashSet<>();
+By default,
+
+the capacity of the hash set will be 16
+the load factor will be 0.75
+
+Methods of HashSet
+The HashSet class provides various methods that allow us to perform various operations on the set.
+
+1.Insert Elements to HashSet
+2.Access HashSet Elements
+3.Remove Elements
+
+Set Operations
+The various methods of the HashSet class can also be used to perform various set operations.
+1.Union of Sets        : To perform the union between two sets, we can use the addAll() method.
+2.Intersection of Sets : To perform the intersection between two sets, we can use the retainAll() method.
+3.Difference of Sets   : To calculate the difference between the two sets, we can use the removeAll() method.
+4.Subset 			   : To check if a set is a subset of another set or not, we can use the containsAll() method. 
+
+
+Why HashSet?
+In Java, HashSet is commonly used if we have to access elements randomly. It is because elements in a hash 
+table are accessed using hash codes.
+
+The hashcode of an element is a unique identity that helps to identify the element in a hash table.
+
+HashSet cannot contain duplicate elements. Hence, each hash set element has a unique hashcode.
+
+LinkedHashSet :-
+
+The LinkedHashSet class of the Java collections framework provides functionalities of both the hashtable and the
+ linked list data structure.
+
+It implements the Set interface.
+
+Elements of LinkedHashSet are stored in hash tables similar to HashSet.
+
+However, linked hash sets maintain a doubly-linked list internally for all of its elements. The linked list defines the 
+order in which elements are inserted in hash tables.
+
+// LinkedHashSet with 8 capacity and 0.75 load factor
+LinkedHashSet<Integer> numbers = new LinkedHashSet<>(8, 0.75);
+
+LinkedHashSet Vs. HashSet
+Both LinkedHashSet and HashSet implements the Set interface. However, there exist some differences between them.
+
+LinkedHashSet maintains a linked list internally. Due to this, it maintains the insertion order of its elements.
+The LinkedHashSet class requires more storage than HashSet. This is because LinkedHashSet maintains linked lists internally.
+The performance of LinkedHashSet is slower than HashSet. It is because of linked lists present in LinkedHashSet.
+
+LinkedHashSet Vs. TreeSet
+Here are the major differences between LinkedHashSet and TreeSet:
+
+The TreeSet class implements the SortedSet interface. That's why elements in a tree set are sorted. However, the LinkedHashSet 
+class only maintains the insertion order of its elements.
+A TreeSet is usually slower than a LinkedHashSet. It is because whenever an element is added to a TreeSet, it has to perform the 
+sorting operation.
+LinkedHashSet allows the insertion of null values. However, we cannot insert a null value to TreeSet.
+
+
+https://www.programiz.com/java-programming/linkedhashset
+
+
+EnumSet:-  
+
+Need to learn
+
+
+TreeSet:-
+ 
+The TreeSet class of the Java collections framework provides the functionality of a tree data structure.
+
+It extends the NavigableSet interface.
+https://www.programiz.com/java-programming/treeset
+
+Creating a TreeSet
+In order to create a tree set, we must import the java.util.TreeSet package first.
+
+Once we import the package, here is how we can create a TreeSet in Java.
+
+
+TreeSet<Integer> numbers = new TreeSet<>();
+Here, we have created a TreeSet without any arguments. In this case, the elements in TreeSet are sorted naturally
+ (ascending order).
+
+However, we can customize the sorting of elements by using the Comparator interface. We will learn about it later in this 
+tutorial.
+
+Methods of TreeSet
+The TreeSet class provides various methods that allow us to perform various operations on the set.
+1.Insert Elements to TreeSet
+2.Access TreeSet Elements
+3.Remove Elements
+
+Methods for Navigation
+Since the TreeSet class implements NavigableSet, it provides various methods to navigate over the elements of the tree set.
+
+1. first() and last() Methods
+first() - returns the first element of the set
+last() - returns the last element of the set
+
+2. ceiling(), floor(), higher() and lower() Methods
+higher(element) - Returns the lowest element among those elements that are greater than the specified element.
+
+lower(element) - Returns the greatest element among those elements that are less than the specified element.
+
+ceiling(element) - Returns the lowest element among those elements that are greater than the specified element.
+ If the element passed exists in a tree set, it returns the element passed as an argument.
+ 
+floor(element) - Returns the greatest element among those elements that are less than the specified element. 
+If the element passed exists in a tree set, it returns the element passed as an argument.
+
+3. pollfirst() and pollLast() Methods
+pollFirst() - returns and removes the first element from the set
+pollLast() - returns and removes the last element from the set
+
+4. headSet(), tailSet() and subSet() Methods
+
+headSet(element, booleanValue)
+The headSet() method returns all the elements of a tree set before the specified element (which is passed as an argument).
+
+The booleanValue parameter is optional. Its default value is false.
+
+If true is passed as a booleanValue, the method returns all the elements before the specified element including the 
+specified element.
+
+tailSet(element, booleanValue)
+The tailSet() method returns all the elements of a tree set after the specified element (which is passed as a parameter)
+ including the specified element.
+
+The booleanValue parameter is optional. Its default value is true.
+
+If false is passed as a booleanValue, the method returns all the elements after the specified element without including the
+ specified element.
+ 
+subSet(e1, bv1, e2, bv2)
+The subSet() method returns all the elements between e1 and e2 including e1.
+
+The bv1 and bv2 are optional parameters. The default value of bv1 is true, and the default value of bv2 is false.
+
+If false is passed as bv1, the method returns all the elements between e1 and e2 without including e1.
+
+If true is passed as bv2, the method returns all the elements between e1 and e2, including e1.
+
+
+Set Operations
+The methods of the TreeSet class can also be used to perform various set operations.
+Union of Sets - To perform the union between two sets, we use the addAll() method
+Intersection of Sets - To perform the intersection between two sets, we use the retainAll() method
+Difference of Sets - To calculate the difference between the two sets, we can use the removeAll() method.
+Subset of a Set - To check if a set is a subset of another set or not, we use the containsAll() method
+
+Other Methods of TreeSet
+
+
+Method	       Description
+clone()	       Creates a copy of the TreeSet
+contains()	   Searches the TreeSet for the specified element and returns a boolean result
+isEmpty()	   Checks if the TreeSet is empty
+size()	       Returns the size of the TreeSet
+clear()	       Removes all the elements from the TreeSet
+
+
+TreeSet Vs. HashSet
+Both the TreeSet as well as the HashSet implements the Set interface. However, there exist some differences between them.
+
+Unlike HashSet, elements in TreeSet are stored in some order. It is because TreeSet implements the SortedSet interface as well.
+TreeSet provides some methods for easy navigation. For example, first(), last(), headSet(), tailSet(), etc. It is because TreeSet also implements the NavigableSet interface.
+HashSet is faster than the TreeSet for basic operations like add, remove, contains and size.
+
+
+SortedSet Interface
+
+The SortedSet interface of the Java Collections framework is used to store elements with some order in a set.
+https://www.programiz.com/java-programming/sortedset
+
+How to use SortedSet?
+To use SortedSet, we must import the java.util.SortedSet package first.
+
+// SortedSet implementation by TreeSet class
+SortedSet<String> animals = new TreeSet<>();
+
+
+Methods of SortedSet
+The SortedSet interface includes all the methods of the Set interface. It's because Set is a super interface of SortedSet.
+
+Besides methods included in the Set interface, the SortedSet interface also includes these methods:
+
+comparator()   				 - returns a comparator that can be used to order elements in the set
+first()       				 - returns the first element of the set
+last()           			 - returns the last element of the set
+headSet(element)			 - returns all the elements of the set before the specified element
+tailSet(element)			 - returns all the elements of the set after the specified element including the specified element
+subSet(element1, element2)   - returns all the elements between the element1 and element2 including element1
+
+
+
+C.Queue Interface :-
+The Queue interface of the Java collections framework provides the functionality of the queue data structure. It extends the 
+Collection interface.
+
+Classes that Implement Queue
+Since the Queue is an interface, we cannot provide the direct implementation of it.
+
+In order to use the functionalities of Queue, we need to use classes that implement it:
+
+ArrayDeque
+LinkedList
+PriorityQueue
+
+
+Interfaces that extend Queue
+The Queue interface is also extended by various subinterfaces:
+
+Deque
+BlockingQueue
+BlockingDeque
+
+Working of Queue Data Structure
+In queues, elements are stored and accessed in First In, First Out manner. That is, elements are added from the behind and 
+removed from the front.
+
+How to use Queue?
+In Java, we must import java.util.Queue package in order to use Queue.
+
+
+// LinkedList implementation of Queue
+Queue<String> animal1 = new LinkedList<>();
+
+// Array implementation of Queue
+Queue<String> animal2 = new ArrayDeque<>();
+
+// Priority Queue implementation of Queue
+Queue<String> animal 3 = new PriorityQueue<>();
+Here, we have created objects animal1, animal2 and animal3 of classes LinkedList, ArrayDeque and PriorityQueue respectively. 
+These objects can use the functionalities of the Queue interface.
+
+
+Methods of Queue
+The Queue interface includes all the methods of the Collection interface. It is because Collection is the super interface of 
+Queue.
+
+Some of the commonly used methods of the Queue interface are:
+
+add()       - Inserts the specified element into the queue. If the task is successful, add() returns true, if not it throws an
+ exception.
+offer() 	- Inserts the specified element into the queue. If the task is successful, offer() returns true, if not it returns 
+false.
+element()	- Returns the head of the queue. Throws an exception if the queue is empty.
+peek() 		- Returns the head of the queue. Returns null if the queue is empty.
+remove() 	- Returns and removes the head of the queue. Throws an exception if the queue is empty.
+poll() 		- Returns and removes the head of the queue. Returns null if the queue is empty.
+
+
+Deque Interface:-
+
+he Deque interface of the Java collections framework provides the functionality of a double-ended queue. It extends the Queue 
+interface.
+
+Working of Deque
+In a regular queue, elements are added from the rear and removed from the front. However, in a deque, we can insert and remove
+ elements from both front an
+ 
+ Classes that implement Deque
+In order to use the functionalities of the Deque interface, we need to use classes that implement it:
+
+ArrayDeque
+LinkedList
+
+
+How to use Deque?
+In Java, we must import the java.util.Deque package to use Deque.
+
+// Array implementation of Deque
+Deque<String> animal1 = new ArrayDeque<>();
+
+// LinkedList implementation of Deque
+Deque<String> animal2 = new LinkedList<>();
+Here, we have created objects animal1 and animal2 of classes ArrayDeque and LinkedList, respectively. These objects can use 
+the functionalities of the Deque interface.
+
+
+Methods of Deque
+
+Since Deque extends the Queue interface, it inherits all the methods of the Queue interface.
+
+Besides methods available in the Queue interface, the Deque interface also includes the following methods:
+
+addFirst()    - Adds the specified element at the beginning of the deque. Throws an exception if the deque is full.
+addLast() 	  - Adds the specified element at the end of the deque. Throws an exception if the deque is full.
+offerFirst()  - Adds the specified element at the beginning of the deque. Returns false if the deque is full.
+offerLast()   - Adds the specified element at the end of the deque. Returns false if the deque is full.
+getFirst()    - Returns the first element of the deque. Throws an exception if the deque is empty.
+getLast()     - Returns the last element of the deque. Throws an exception if the deque is empty.
+peekFirst()   - Returns the first element of the deque. Returns null if the deque is empty.
+peekLast() 	  - Returns the last element of the deque. Returns null if the deque is empty.
+removeFirst() - Returns and removes the first element of the deque. Throws an exception if the deque is empty.
+removeLast()  - Returns and removes the last element of the deque. Throws an exception if the deque is empty.
+pollFirst()   - Returns and removes the first element of the deque. Returns null if the deque is empty.
+pollLast()    - Returns and removes the last element of the deque. Returns null if the deque is empty.
+
+Deque as Stack Data Structure
+The Stack class of the Java Collections framework provides the implementation of the stack.
+
+However, it is recommended to use Deque as a stack instead of the Stack class. It is because methods of Stack are synchronized.
+
+Here are the methods the Deque interface provides to implement stack:
+
+push() - adds an element at the beginning of deque
+pop() - removes an element from the beginning of deque
+peek() - returns an element from the beginning of deque
+
+
+ArrayDeque
+In Java, we can use the ArrayDeque class to implement queue and deque data structures using arrays.
+
+
+Interfaces implemented by ArrayDeque
+The ArrayDeque class implements these two interfaces:
+
+Java Queue Interface
+Java Deque Interface
+
+Creating ArrayDeque
+In order to create an array deque, we must import the java.util.ArrayDeque package.
+
+Here is how we can create an array deque in Java:
+
+ArrayDeque<Type> animal = new ArrayDeque<>();
+Here, Type indicates the type of the array deque. For example,
+
+// Creating String type ArrayDeque
+ArrayDeque<String> animals = new ArrayDeque<>();
+
+// Creating Integer type ArrayDeque
+ArrayDeque<Integer> age = new ArrayDeque<>();
+
+
+Methods of ArrayDeque
+The ArrayDeque class provides implementations for all the methods present in Queue and Deque interface.
+Insert Elements to Deque
+1. Add elements using add(), addFirst() and addLast()
+
+add() - inserts the specified element at the end of the array deque
+addFirst() - inserts the specified element at the beginning of the array deque
+addLast() - inserts the specified at the end of the array deque (equivalent to add())
+
+
+Note: If the array deque is full
+
+the add() method will throw an exception
+the offer() method returns false
+
+2. Insert elements using offer(), offerFirst() and offerLast()
+
+offer() - inserts the specified element at the end of the array deque
+offerFirst() - inserts the specified element at the beginning of the array deque
+offerLast() - inserts the specified element at the end of the array deque
+
+Access ArrayDeque Elements
+1. Access elements using getFirst() and getLast()
+
+getFirst() - returns the first element of the array deque
+getLast() - returns the last element of the array deque
+
+
+2. Access elements using peek(), peekFirst() and peekLast() method
+
+peek() - returns the first element of the array deque
+peekFirst() - returns the first element of the array deque (equivalent to peek())
+peekLast() - returns the last element of the array deque
+
+Remove ArrayDeque Elements
+1. Remove elements using the remove(), removeFirst(), removeLast() method
+
+remove() - returns and removes an element from the first element of the array deque
+remove(element) - returns and removes the specified element from the head of the array deque
+removeFirst() - returns and removes the first element from the array deque (equivalent to remove())
+removeLast() - returns and removes the last element from the array deque
+
+2. Remove elements using the poll(), pollFirst() and pollLast() method
+
+poll() - returns and removes the first element of the array deque
+pollFirst() - returns and removes the first element of the array deque (equivalent to poll())
+pollLast() - returns and removes the last element of the array deque
+
+3. Remove Element: using the clear() method
+
+To remove all the elements from the array deque, we use the clear() method.
+
+
+Iterating the ArrayDeque
+iterator() - returns an iterator that can be used to iterate over the array deque
+descendingIterator() - returns an iterator that can be used to iterate over the array deque in reverse order
+In order to use these methods, we must import the java.util.Iterator package
+
+Other Methods
+Methods	Descriptions
+element()	        - Returns an element from the head of the array deque.
+contains(element)	- Searches the array deque for the specified element.
+                       If the element is found, it returns true, if not it returns false.
+size()	            - Returns the length of the array deque.
+toArray()	        - Converts array deque to array and returns it.
+clone() 	        - Creates a copy of the array deque and returns it.
+
+
+ArrayDeque Vs. LinkedList Class
+Both ArrayDeque and Java LinkedList implements the Deque interface. However, there exist some differences between them.
+
+LinkedList supports null elements, whereas ArrayDeque doesn't.
+Each node in a linked list includes links to other nodes. That's why LinkedList requires more storage than ArrayDeque.
+If you are implementing the queue or the deque data structure, an ArrayDeque is likely to faster than a LinkedList.
+
+PriorityQueue:
+The PriorityQueue class provides the functionality of the heap data structure.
+
+It implements the Queue interface.
+
+Unlike normal queues, priority queue elements are retrieved in sorted order.
+
+Suppose, we want to retrieve elements in the ascending order. In this case, the head of the priority queue will be the 
+smallest element. Once this element is retrieved, the next smallest element will be the head of the queue.
+
+
+Creating PriorityQueue
+In order to create a priority queue, we must import the java.util.PriorityQueue package. Once we import the package, here is how we can create a priority queue in Java.
+
+PriorityQueue<Integer> numbers = new PriorityQueue<>();
+
+
+Methods of PriorityQueue
+The PriorityQueue class provides the implementation of all the methods present in the Queue interface.
+
+Insert Elements to PriorityQueue
+add() - Inserts the specified element to the queue. If the queue is full, it throws an exception.
+offer() - Inserts the specified element to the queue. If the queue is full, it returns false.
+
+
+Access PriorityQueue Elements
+To access elements from a priority queue, we can use the peek() method
+
+Remove PriorityQueue Elements
+remove() - removes the specified element from the queue
+poll() - returns and removes the head of the queue
+
+
+Iterating Over a PriorityQueue
+To iterate over the elements of a priority queue, we can use the iterator() method
+
+Other PriorityQueue Methods
+Methods	             Descriptions
+contains(element)	Searches the priority queue for the specified element. If the element is found, it returns true, 
+					if not it returns false.
+size()	            Returns the length of the priority queue.
+toArray()	        Converts a priority queue to an array and returns it.
+
+
+
+Map Interface:-
+
+The Map interface of the Java collections framework provides the functionality of the map data structure.
+
+Working of Map
+In Java, elements of Map are stored in key/value pairs. Keys are unique values associated with individual Values.
+
+A map cannot contain duplicate keys. And, each key is associated with a single value.
+
+https://www.programiz.com/java-programming/map
+
+We can access and modify values using the keys associated with them.
+
+In the above diagram, we have values: United States, Brazil, and Spain. And we have corresponding keys: us, br, and es.
+
+Now, we can access those values using their corresponding keys.
+
+Note: The Map interface maintains 3 different sets:
+
+the set of keys
+the set of values
+the set of key/value associations (mapping).
+Hence we can access keys, values, and associations individually.
+
+
+Classes that implement Map
+Since Map is an interface, we cannot create objects from it.
+
+In order to use functionalities of the Map interface, we can use these classes:
+
+HashMap
+EnumMap
+LinkedHashMap
+WeakHashMap
+TreeMap
+These classes are defined in the collections framework and implement the Map interface.
+
+How to use Map?
+In Java, we must import the java.util.Map package in order to use Map. Once we import the package, here's how we can
+create a map.
+
+// Map implementation using HashMap
+Map<Key, Value> numbers = new HashMap<>();
+In the above code, we have created a Map named numbers. We have used the HashMap class to implement the Map interface.
+
+Here,
+
+Key - a unique identifier used to associate each element (value) in a map
+Value - elements associated by keys in a map
+
+
+Methods of Map
+
+The Map interface includes all the methods of the Collection interface. It is because Collection is a super interface of Map.
+
+Besides methods available in the Collection interface, the Map interface also includes the following methods:
+
+put(K, V)                      - Inserts the association of a key K and a value V into the map. If the key is already present, 
+								 the new value replaces the old value.
+putAll()                       - Inserts all the entries from the specified map to this map.
+putIfAbsent(K, V)              - Inserts the association if the key K is not already associated with the value V.
+get(K)                         - Returns the value associated with the specified key K. If the key is not found, it returns null.
+getOrDefault(K, defaultValue)  - Returns the value associated with the specified key K. If the key is not found, it returns the
+									 defaultValue.
+containsKey(K)                 - Checks if the specified key K is present in the map or not.
+containsValue(V)               - Checks if the specified value V is present in the map or not.
+replace(K, V)                  - Replace the value of the key K with the new specified value V.
+replace(K, oldValue, newValue) - Replaces the value of the key K with the new value newValue only if the key K is associated
+								 with the value oldValue.
+remove(K)                      - Removes the entry from the map represented by the key K.
+remove(K, V)                   - Removes the entry from the map that has key K associated with value V.
+keySet()                       - Returns a set of all the keys present in a map.
+values()                       - Returns a set of all the values present in a map.
+entrySet()                     - Returns a set of all the key/value mapping present in a map.
+
+
+HashMap :
+
+The HashMap class of the Java collections framework provides the functionality of the hash table data structure.
+
+It stores elements in key/value pairs. Here, keys are unique identifiers used to associate each value on a map.
+
+Create a HashMap
+In order to create a hash map, we must import the java.util.HashMap package first. Once we import the package, here is how 
+we can create hashmaps in Java.
+
+// hashMap creation with 8 capacity and 0.6 load factor
+HashMap<K, V> numbers = new HashMap<>();
+In the above code, we have created a hashmap named numbers. Here, K represents the key type and V represents the type of values.
+For example,
+
+HashMap<String, Integer> numbers = new HashMap<>();
+Here, the type of keys is String and the type of values is Integer.
+
+
+Basic Operations on Java HashMap
+The HashMap class provides various methods to perform different operations on hashmaps. We will look at some commonly used arraylist operations in this tutorial:
+
+Add elements
+
+To add a single element to the hashmap, we use the put() method of the HashMap class.
+
+Access elements
+We can use the get() method to access the value from the hashmap.
+Here, the get() method takes the key as its argument and returns the corresponding value associated with the key.
+
+We can also access the keys, values, and key/value pairs of the hashmap as set views using keySet(), values(), and entrySet() methods respectively.
+Change elements
+Remove elements
+
+https://www.programiz.com/java-programming/library/hashmap/put
+
+
+Other Methods of HashMap
+Method	               Description
+clear()	               removes all mappings from the HashMap
+compute()	           computes a new value for the specified key
+computeIfAbsent()	   computes value if a mapping for the key is not present
+computeIfPresent()	   computes a value for mapping if the key is present
+merge()	               merges the specified mapping to the HashMap
+clone()	               makes the copy of the HashMap
+containsKey()	       checks if the specified key is present in Hashmap
+containsValue()	       checks if Hashmap contains the specified value
+size()	               returns the number of items in HashMap
+isEmpty()	           checks if the Hashmap is empty
+
+
+
+Iterate through a HashMap
+To iterate through each entry of the hashmap, we can use Java for-each loop. We can iterate through keys only, vales only, 
+and key/value mapping.
+
+
+Creating HashMap from Other Maps
+In Java, we can also create a hashmap from other maps
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.
